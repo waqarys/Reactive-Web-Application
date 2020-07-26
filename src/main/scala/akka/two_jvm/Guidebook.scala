@@ -1,4 +1,4 @@
-package akka.intro
+package akka.two_jvm
 
 object Guidebook {
   case class Inquiry(code: String)

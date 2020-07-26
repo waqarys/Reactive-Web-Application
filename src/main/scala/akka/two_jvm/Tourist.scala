@@ -1,4 +1,4 @@
-package akka.intro
+package akka.two_jvm
 
 object Tourist {
   case class Guidance(code: String, description: String)
@@ -6,8 +6,8 @@ object Tourist {
 }
 
 import akka.actor.{Actor, ActorRef}
-import akka.intro.Guidebook.Inquiry
-import akka.intro.Tourist.{Guidance, Start}
+import akka.two_jvm.Guidebook.Inquiry
+import akka.two_jvm.Tourist.{Guidance, Start}
 
 class Tourist(guidebook: ActorRef) extends Actor {
   override def receive: Receive = {

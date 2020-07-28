@@ -1,4 +1,4 @@
-package akka.two_jvm
+package akka.remote.pool
 
 object Guidebook {
   case class Inquiry(code: String)

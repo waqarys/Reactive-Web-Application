@@ -1,8 +1,9 @@
-package akka.two_jvm
+package akka.remote.pool
 
 import java.io.File
 
 import akka.actor.{ActorRef, ActorSystem, Props}
+import akka.routing.FromConfig
 import com.typesafe.config.ConfigFactory
 
 object GuidebookMain extends App {
@@ -14,6 +15,8 @@ object GuidebookMain extends App {
   val system: ActorSystem = ActorSystem("BookSystem", config)
 
   val guideProps: Props = Props[Guidebook]
-  val guidebook: ActorRef = system.actorOf(guideProps, "guidebook")
+  val routerProps: Props = FromConfig.props(guideProps)
+  val guidebook: ActorRef = system.actorOf(routerProps, "guidebook")
+
 
 }
